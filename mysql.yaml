@@ -13,8 +13,25 @@
       state: started
       enabled: yes
   
+  - name: connect to mysql server 
+    community.mysql.mysql_info:
+      login_user: root
+      login_password: ExpenseApp@1
+      login_host: mysql.learndevopswithaws.cloud
+    register: mysql_info
 
-# output for install mysql server task:
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "mysql info: {{ mysql_info }}"
+  
+
+
+
+
+
+
+
+# 1. output for install mysql server task:
 # PLAY [configure mysql server] *********************************************************************************
 
 # TASK [Gathering Facts] ****************************************************************************************
@@ -26,3 +43,17 @@
 # PLAY RECAP ****************************************************************************************************
 # 172.31.90.161              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 
+# 2. output for start and enable mysqld:
+# PLAY [configure mysql server] *********************************************************************************
+
+# TASK [Gathering Facts] ****************************************************************************************
+# ok: [172.31.90.161]
+
+# TASK [install mysql server] ***********************************************************************************
+# ok: [172.31.90.161]
+
+# TASK [start and enable mysql server] **************************************************************************
+# changed: [172.31.90.161]
+
+# PLAY RECAP ****************************************************************************************************
+# 172.31.90.161              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
