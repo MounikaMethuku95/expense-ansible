@@ -1,5 +1,6 @@
 - name: connect to frontend server
   hosts: frontend
+  become: yes
   tasks:
   - name: install and enable nginx
     ansible.builtin.dnf:
