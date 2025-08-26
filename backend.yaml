@@ -6,8 +6,11 @@
   tasks:
   - name: install python-mysql libraries
     ansible.builtin.pip:
-      name: PyMysql
+      name: "{{ item }}"
       executable: pip3.9
+    loop: 
+    - PyMysql
+    - cryptography
 
   - name: disable current nodejs
     ansible.builtin.command: dnf module disable nodejs -y
