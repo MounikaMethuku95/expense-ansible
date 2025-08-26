@@ -2,7 +2,7 @@
   hosts: frontend
   become: yes
   tasks:
-  - name: install and enable nginx
+  - name: install nginx
     ansible.builtin.dnf:
       name: nginx
       state: installed
@@ -30,8 +30,8 @@
 
   - name: unzip the downloaded frontend code
     ansible.builtin.unarchive:
-      src: /tmp/backend.zip
-      dest: /html
+      src: /tmp/frontend.zip
+      dest: /usr/share/nginx/html
       remote_src: yes
 
   - name: copy expense config file
