@@ -4,6 +4,11 @@
   vars:
     mysql_root_password: ExpenseApp@1
   tasks:
+  - name: install python-mysql libraries
+    ansible.builtin.pip:
+      name: PyMysql
+      executable: pip3.9
+
   - name: disable current nodejs
     ansible.builtin.command: dnf module disable nodejs -y
 
