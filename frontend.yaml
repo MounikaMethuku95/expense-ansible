@@ -1,0 +1,13 @@
+- name: connect to frontend server
+  hosts: frontend
+  tasks:
+  - name: install and enable nginx
+    ansible.builtin.dnf:
+      name: nginx
+      state: installed
+  
+  - name: start and enable nginx service
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
