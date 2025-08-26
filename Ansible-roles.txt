@@ -1,0 +1,4 @@
+Ansible Roles:
+--> DRY - don't repeat yourself
+
+the packages we install using dnf, all have their config stored under /etc/ansible/ansible.cfg
