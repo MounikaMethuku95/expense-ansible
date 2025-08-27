@@ -1,4 +1,32 @@
+Ansible.cfg:
+--> The packages we install using dnf, all have their config stored under /etc/ansible/ansible.cfg
+
+Preferences for ansible config:
+1. ANSIBLE_CONFIG (environment variable if set)
+2. ansible.cfg (in the current directory)
+3. ~/.ansible.cfg (in the home directory)
+4. /etc/ansible/ansible.cfg
+
+** IN general, the config file is managed in the current directory. It will be easy to manage project wise.
+
 Ansible Roles:
 --> DRY - don't repeat yourself
+->code reuse
+-> A standard structure of writing playbooks that contain tasks, vars, templates, dependencies, files, libraries etc.,
 
-the packages we install using dnf, all have their config stored under /etc/ansible/ansible.cfg
+roles/role-name
+
+tasks --> You can keep all your tasks here, ansible automatically loads them
+	main.yaml 
+vars --> variables required for this role
+	main.yaml
+templates --> you can keep variables in the file, ansible replace the value at runtime.
+	any file
+files --> We can keep files in this folder
+	any file names
+Handlers --> notifiers when some change event is happened
+defaults/         #
+	main.yml      #  <-- default lower priority variables for this role
+meta  --> dependencies of this role
+	main.yaml
+library/          # roles can also include custom modules
